@@ -1,4 +1,4 @@
-package com.OS455;
+package com.task2;
 
 import javax.swing.*;
 import java.util.LinkedList;
