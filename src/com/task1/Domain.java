@@ -1,4 +1,4 @@
-package com.company;
+package com.task1;
 
 public class Domain {
 }

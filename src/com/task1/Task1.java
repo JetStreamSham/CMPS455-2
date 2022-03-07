@@ -1,10 +1,9 @@
-package com.company;
-import java.util.concurrent.*;
+package com.task1;
 
 
-public class Main {
+public class Task1 {
 
-    public static void main(String[] args) {
+    public static void Task1() {
 
         //Generate number of domains/objects
         int numObj = (int)(Math.random() * 5 + 3);

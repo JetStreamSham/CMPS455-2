@@ -1,4 +1,4 @@
-package com.company;
+package com.task3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -138,7 +138,7 @@ class Domain extends Thread{
 
 public class CapabilityList {
 
-    public static void main(String[] args) {
+    public static void Task3() {
 
         Random rd = new Random();
         int N = 7;

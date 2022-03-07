@@ -1,4 +1,4 @@
-package com.OS455;
+package com.task2;
 
 //used to differentiate domains and other objects
 enum ObjectType{

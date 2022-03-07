@@ -1,4 +1,4 @@
-package com.company;
+package com.task1;
 import java.util.Random;
 import java.util.concurrent.*;
 
