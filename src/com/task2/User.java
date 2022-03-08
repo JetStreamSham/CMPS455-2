@@ -77,11 +77,11 @@ public class User extends Thread {
                 if (Simulation.readerCount[objectIndex] == 1) {
                     Simulation.writeSemaphores[objectIndex].acquire();
                 }
+                Yield();
                 Simulation.readSemaphores[objectIndex].release();
 
                 String objBuffer = Simulation.objectBuffers[objectIndex];
                 System.out.println(ThreadInfo() + " read from F" + objectIndex + ":" + objBuffer + " ");
-                Yield();
 
                 Simulation.readSemaphores[objectIndex].acquire();
                 Simulation.readerCount[objectIndex]--;
