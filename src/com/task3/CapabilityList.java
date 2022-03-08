@@ -48,17 +48,21 @@ class Domain extends Thread{
                     if (hold) {
                         objects[a].acquire();
                         System.out.println("[Thread " + id + " (" + name + ")]    Resource: F" + a + " contains " + objCont.get(a));
-                        int yield = rand.nextInt(8) + 3;
+                        int yield = rand.nextInt(5) + 3;
                         for (int i = 0; i < yield; i++) {
                             Thread.yield();
                         }
                         objects[a].release();
-                        int yield2 = rand.nextInt(8) + 3;
+                        int yield2 = rand.nextInt(5) + 3;
                         for (int i = 0; i < yield2; i++) {
                             Thread.yield();
                         }
                     } else {
                         System.out.println("[Thread " + id + " (" + name + ")]    Operation Failed, permission denied.");
+                        int yield = rand.nextInt(5) + 3;
+                        for (int i = 0; i < yield; i++) {
+                            Thread.yield();
+                        }
                     }
                 } catch(InterruptedException e){
                     e.printStackTrace();
@@ -81,17 +85,21 @@ class Domain extends Thread{
                         int color = rand.nextInt(colors.size());
                         System.out.println("[Thread " + id + " (" + name + ")]    Writing " + colors.get(color) + " to resource F" + b);
                         objCont.set(b, colors.get(color));
-                        int yield = rand.nextInt(8) + 3;
+                        int yield = rand.nextInt(5) + 3;
                         for(int i = 0; i < yield; i++ ){
                             Thread.yield();
                         }
                         objects[b].release();
-                        int yield2 = rand.nextInt(8) + 3;
+                        int yield2 = rand.nextInt(5) + 3;
                         for(int i = 0; i < yield2; i++ ){
                             Thread.yield();
                         }
                     }else{
                         System.out.println("[Thread " + id + " (" + name + ")]    Operation Failed, permission denied.");
+                        int yield = rand.nextInt(5) + 3;
+                        for (int i = 0; i < yield; i++) {
+                            Thread.yield();
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -114,17 +122,21 @@ class Domain extends Thread{
                         myCap = capabilities.get(c);
                         name = "D"+c;
                         System.out.println("[Thread " + id + " (" + name + ")]    Switched to " + name);
-                        int yield = rand.nextInt(8) + 3;
+                        int yield = rand.nextInt(5) + 3;
                         for(int i = 0; i < yield; i++ ){
                             Thread.yield();
                         }
                         domains[c].release();
-                        int yield2 = rand.nextInt(8) + 3;
+                        int yield2 = rand.nextInt(5) + 3;
                         for(int i = 0; i < yield2; i++ ){
                             Thread.yield();
                         }
                     }else{
                         System.out.println("[Thread " + id + " (" + name + ")]    Operation Failed, permission denied.");
+                        int yield = rand.nextInt(5) + 3;
+                        for (int i = 0; i < yield; i++) {
+                            Thread.yield();
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
