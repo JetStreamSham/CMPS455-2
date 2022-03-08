@@ -142,8 +142,8 @@ public class CapabilityList {
         System.out.println("\nAccess Control Scheme: Capability List\n");
 
         Random rd = new Random();
-        int N = 7;
-        int M = 3;
+        int N = rd.nextInt(5)+3;
+        int M = rd.nextInt(5)+3;
         Semaphore[] requests = new Semaphore[N];
         Semaphore[] objects = new Semaphore[M];
         Semaphore[] domains = new Semaphore[N];
