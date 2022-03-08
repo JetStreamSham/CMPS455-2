@@ -7,7 +7,7 @@ public class Main {
     public static void main(String args[]){
         if(args.length < 1){
             System.out.println("Incorrect commandline args");
-            System.out.println("Use one of the following letters: M/L/C");
+            System.out.println("One of the following letters is required: M/L/C");
             return;
         }
         String arg1 = args[0];

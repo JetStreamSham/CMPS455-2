@@ -49,9 +49,7 @@ public class User extends Thread {
         return "[Thrd " + threadIndex + "(D" + domainIndex + ")]";
     }
 
-    public static boolean GetRights(int domain, int objIndex, String op) {
-        String rights = "_";
-
+    public static boolean CheckRights(int domain, int objIndex, String op) {
         LinkedList<DomainRights> objACL = acl.GetObjectAccessList(objIndex);
         DomainRights domainRights = objACL.get(domain);
         boolean hasRights = domainRights.permissions.contains(op);
@@ -69,7 +67,7 @@ public class User extends Thread {
 
             //check for read permissions
             System.out.println(ThreadInfo() + " attempting to read from F" + objectIndex);
-            boolean hasRights = GetRights(domainIndex, objectIndex, "R");
+            boolean hasRights = CheckRights(domainIndex, objectIndex, "R");
             if (hasRights) {
 
                 Simulation.readSemaphores[objectIndex].acquire();
@@ -108,7 +106,7 @@ public class User extends Thread {
         try {
 
             //check for write permissions
-            boolean hasRights = GetRights(domainIndex, objectIndex, "W");
+            boolean hasRights = CheckRights(domainIndex, objectIndex, "W");
             System.out.println(ThreadInfo() + " attempting to write to F" + objectIndex);
             if (hasRights) {
                 Simulation.writeSemaphores[objectIndex].acquire();
@@ -153,7 +151,7 @@ public class User extends Thread {
 
             //check for switch permissions
             System.out.println(ThreadInfo() + " attempting to switch to D" + objectIndex % N);
-            boolean hasRights = GetRights(domainIndex, objectIndex, "a");
+            boolean hasRights = CheckRights(domainIndex, objectIndex, "a");
 
             if (hasRights) {
                 Simulation.readSemaphores[objectIndex].acquire();
