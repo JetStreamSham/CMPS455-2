@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 
 public class Simulation {
 
-    public static int READER_MAX;
+    public static int READER_MAX =5;
     public static int readerCount[];
     public static Semaphore readSemaphores[];
     public static Semaphore writeSemaphores[];
@@ -19,7 +19,7 @@ public class Simulation {
         objectBuffers = new String[M];
 
         for (int i = 0; i < M + N; i++) {
-            readSemaphores[i] = new Semaphore(1);
+            readSemaphores[i] = new Semaphore(READER_MAX);
         }
         for (int i = 0; i < M; i++) {
             writeSemaphores[i] = new Semaphore(1);

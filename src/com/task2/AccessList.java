@@ -48,9 +48,6 @@ public class AccessList {
             //create domain rights for every domain
             for (int j = 0; j < N; j++) {
                 DomainRights rights = new DomainRights();
-                //specify that this a file not a domain
-                rights.object = ObjectType.FILE;
-                rights.domain = j;
 
                 //set the rights randomly
                 //1/4 chance for 0:R 1:W 2:RW 3:NA
@@ -88,9 +85,6 @@ public class AccessList {
             for (int j = 0; j < N; j++) {
 
                 DomainRights rights = new DomainRights();
-                //specify that this a file not a domain
-                rights.object = ObjectType.DOMAIN;
-                rights.domain = j;
                 // check if adding domain rights to same domain
                 if (i != j) {
                     //set the rights randomly
